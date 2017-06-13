@@ -1,16 +1,17 @@
 // Place your settings in this file to overwrite the default settings
 {
     "editor.fontSize": 14,
-    "window.zoomLevel": -0.3,
-    "editor.tabSize": 2,
-    "editor.renderLineHighlight": "none",
+    "window.zoomLevel": -0.1,
+    "editor.tabSize": 3,
     
-    "workbench.colorTheme": "Base16 Dark Tomorrow",
+    "editor.renderLineHighlight": "none",
     "workbench.iconTheme": "file-icons",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
     "editor.hideCursorInOverviewRuler": true,
+    "editor.minimap.enabled": false,
+    "editor.renderIndentGuides": false,
     "workbench.colorCustomizations": {
         "statusBar.background" : "#1A1A1A",
         "statusBar.noFolderBackground" : "#212121",
@@ -21,11 +22,11 @@
         "scrollbarSlider.hoverBackground": "#161719",
         "sideBar.background": "#161719"
     },
-    "guides.active.enabled": false,
     "editor.selectionHighlight": true,
     "files.associations": {
         "*.js": "javascriptreact"
     },
-    
+    "workbench.colorTheme": "Base16 Dark Tomorrow",
+    "git.confirmSync": false
 }
 
