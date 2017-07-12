@@ -3,6 +3,7 @@
     "editor.fontSize": 14,
     "window.zoomLevel": -0.1,
     "editor.tabSize": 3,
+    "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
     
     "editor.renderLineHighlight": "none",
     "workbench.iconTheme": "file-icons",
@@ -20,13 +21,18 @@
         "scrollbarSlider.background": "#161719",
         "scrollbarSlider.activeBackground": "#161719",
         "scrollbarSlider.hoverBackground": "#161719",
-        "sideBar.background": "#161719"
+        "sideBar.background": "#161719",
+        // List and Trees rgb(29, 31, 33)
+        "list.hoverBackground": "#1D1F21",
+        "list.activeSelectionBackground": "#1D1F21",
+        "list.inactiveSelectionBackground": "#1D1F21"
     },
     "editor.selectionHighlight": true,
     "files.associations": {
         "*.js": "javascriptreact"
     },
     "workbench.colorTheme": "Base16 Dark Tomorrow",
-    "git.confirmSync": false
+    "git.confirmSync": false,
+    "editor.renderWhitespace": "none",
+    "editor.renderControlCharacters": true
 }
-
