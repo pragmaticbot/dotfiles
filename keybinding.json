@@ -1,0 +1,14 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+   {
+        "key": "shift+enter",
+        "command": "extension.jumpy-word",
+        "when": "editorTextFocus"
+    },
+    { 
+        "key": "cmd+e",                
+        "command": "workbench.action.terminal.toggleTerminal" 
+    },
+    { "key": "ctrl+v", "command": "workbench.action.terminal.focus"},
+    { "key": "ctrl+v", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+]
