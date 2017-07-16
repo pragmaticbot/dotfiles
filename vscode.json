@@ -13,6 +13,7 @@
     "editor.hideCursorInOverviewRuler": true,
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
+    "editor.matchBrackets": false,
     "workbench.colorCustomizations": {
         "statusBar.background" : "#1A1A1A",
         "statusBar.noFolderBackground" : "#212121",
@@ -25,7 +26,10 @@
         // List and Trees rgb(29, 31, 33)
         "list.hoverBackground": "#1D1F21",
         "list.activeSelectionBackground": "#1D1F21",
-        "list.inactiveSelectionBackground": "#1D1F21"
+        "list.inactiveSelectionBackground": "#1D1F21",
+        // Terminal Colors
+        "terminal.ansiBrightMagenta": "#DD82CD",
+        "terminal.ansiBrightCyan": "#2892D7"
     },
     "editor.selectionHighlight": true,
     "files.associations": {
@@ -34,5 +38,7 @@
     "workbench.colorTheme": "Base16 Dark Tomorrow",
     "git.confirmSync": false,
     "editor.renderWhitespace": "none",
-    "editor.renderControlCharacters": true
+    "editor.renderControlCharacters": true,
+    "workbench.startupEditor": "welcomePage"
 }
+
