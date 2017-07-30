@@ -14,7 +14,7 @@ syntax on
 :imap ii <Esc>
 
 " Indentation
-set tabstop=4
+set tabstop=3
 set shiftwidth=4
 set softtabstop=4
 set autoindent
