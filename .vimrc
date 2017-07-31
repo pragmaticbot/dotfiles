@@ -1,4 +1,4 @@
-" -- Global Configuration --------------------------------------------------------------------------
+" -- Global Configuration ----------------------------------------------------------------------------
 
 " General
 set nocompatible " Use Vim settings, rather then Vi settings
