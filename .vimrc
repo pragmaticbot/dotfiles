@@ -1,4 +1,4 @@
-" -- Global Configuration --------------------------------------------------------------------------
+" -- Global Configuration ----------------------------------------------------------------------------
 
 " General
 set nocompatible " Use Vim settings, rather then Vi settings
@@ -14,7 +14,7 @@ syntax on
 :imap ii <Esc>
 
 " Indentation
-set tabstop=4
+set tabstop=3
 set shiftwidth=4
 set softtabstop=4
 set autoindent
