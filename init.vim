@@ -16,30 +16,36 @@ set encoding=utf8
 
 " Core Plugins
    call dein#add('scrooloose/nerdtree')
+   "call dein#add('w0rp/ale')
    call dein#add('sheerun/vim-polyglot')
    call dein#add('Xuyuanp/nerdtree-git-plugin')
-   call dein#add('vim-airline/vim-airline')
-   call dein#add('paranoida/vim-airlineish')
    call dein#add('tpope/vim-surround')
    call dein#add('airblade/vim-gitgutter')
+   call dein#add('tpope/vim-fugitive')
    call dein#add('christoomey/vim-tmux-navigator')
    call dein#add('w0ng/vim-hybrid')
    call dein#add('mattn/emmet-vim')
-"   call dein#add('kh3phr3n/tabline')
-"   call dein#add('ap/vim-buftabline')
    call dein#add('raimondi/delimitmate')
    call dein#add('yggdroot/indentline')
    call dein#add('majutsushi/tagbar')
    call dein#add('vim-ctrlspace/vim-ctrlspace')
-"   call dein#add('ryanoasis/vim-devicons')
    call dein#add('tiagofumo/vim-nerdtree-syntax-highlight')
    call dein#add('ryanoasis/vim-devicons')
+   call dein#add('tyrannicaltoucan/vim-quantum')
+   call dein#add('KeitaNakamura/neodark.vim')
+   call dein#add('Zabanaa/neuromancer.vim')
+   call dein#add('mhartington/oceanic-next')
+   call dein#add('itchyny/lightline.vim')
+   call dein#add('Townk/vim-autoclose')
+   call dein#add('cohama/lexima.vim')
 
 " Programming
    call dein#add('pangloss/vim-javascript')
    call dein#add('jelera/vim-javascript-syntax', {'autoload':{'filetypes':['javascript']}})
    call dein#add('othree/yajs')
+   call dein#add('othree/javascript-libraries-syntax.vim')
    call dein#add('mxw/vim-jsx')
+   call dein#add('moll/vim-node')
 
   if dein#check_install()
     call dein#install()
@@ -52,11 +58,12 @@ set encoding=utf8
 " Initialize Plugins
 " --------------------------------------------------------
 let g:javascript_plugin_jsdoc = 1
+let g:jsx_ext_required = 0
 
 " System Settings  ----------------------------------------------------------
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set t_Co=256
-let base16colorspace=256
+let base16colorspace=256  " Access colors present in 256 colorspace
 if (has("termguicolors"))
   set termguicolors
 endif
@@ -74,6 +81,22 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+set backspace=indent,eol,start
+
+" Themes, Commands, etc  ----------------------------------------------------
+set cursorline
+set background=dark
+"let g:hybrid_custom_term_colors = 1
+"let g:hybrid_reduced_contrast = 1
+colorscheme neodark
+let g:neodark#background = '#282c34'
+let g:neodark#use_256color = 1
+let g:one_allow_italics = 1
+let g:quantum_black=1
+let g:gitgutter_map_keys = 0
+let g:indentLine_color_gui = '#666c69'
+let g:indentLine_char = '┆'
+
 
 " Remappings ---------------------------------------------------------------
 " inoremap jk <esc>
@@ -100,24 +123,12 @@ nnoremap <leader>k :bprevious<cr>
 " map <D-x> :!pbcopy<CR>
 " vmap <D-c> :w !pbcopy<CR><CR>
 vnoremap <leader>c :w !pbcopy<CR><CR>
-
-" Themes, Commands, etc  ----------------------------------------------------
-syntax enable
-set background=dark
-let g:hybrid_custom_term_colors = 1
-let g:hybrid_reduced_contrast = 1
-colorscheme hybrid
-let g:airline_theme = 'airlineish'
-let g:one_allow_italics = 1
-let g:gitgutter_map_keys = 0
-let g:indentLine_color_gui = '#A4E57E'
-let g:indentLine_char = '┆'
-" set guifont=Cousine\ for\ Powerline\ :h12
+noremap <leader>z :bd<CR><CR>
 
 
 " Nerdtree ------------------------------------------------------------------
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-map <leader>n :NERDTreeToggle<CR>
+map <leader>m :NERDTreeToggle<CR>
 
 let g:NERDTreeChDirMode=2
 let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__', 'node_modules']
@@ -140,9 +151,12 @@ tmap <C-h> <C-\><C-n>:TmuxNavigateLeft<CR>
 autocmd VimEnter * NERDTree
 
 " Plugin Settings ------------------------------------------------------------
-let g:user_emmet_mode='n'
-let g:user_emmet_leader_key='<leader>e'
-nmap <leader>t :TagbarToggle<CR>
+"let g:user_emmet_mode='n'
+"let g:user_emmet_leader_key='<Tab>'
+"let g:user_emmet_expandabbr_key = '<Tab>'
+au FileType html,css,scss imap <expr>kj  emmet#expandAbbrIntelligent("\<tab>")
+let g:use_emmet_complete_tag = 1
+nmap <leader>n :TagbarToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 
 " Vim-Devicons -------------------------------------------------------------0{{{
@@ -151,10 +165,10 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 let g:WebDevIconsOS = 'Darwin'
-let g:webdevicons_conceal_nerdtree_brackets = 1 
+let g:webdevicons_conceal_nerdtree_brackets = 1
 " the amount of space to use after the glyph character (default ' ')
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-" Force extra padding in NERDTree so that the filetype icons line up vertically 
+" Force extra padding in NERDTree so that the filetype icons line up vertically
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 
 if has("autocmd")
@@ -162,4 +176,9 @@ if has("autocmd")
 endif
 
 nmap <leader>v :tabedit $MYVIMRC<CR>
- 
+
+"let g:ale_lint_on_save = 1
+"let g:ale_lint_on_text_changed = 0
+"let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+"let g:ale_sign_warning = '.'
+"let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
