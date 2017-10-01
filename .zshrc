@@ -92,3 +92,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="atom ~/.zshrc"
 # alias ohmyzsh="atom ~/.oh-my-zsh"
+
+# Auto Start Tmux
+if [ "$TMUX" = "" ]; then tmux; fi
