@@ -15,9 +15,6 @@ ZSH_THEME="dracula"
 #ZSH_THEME="hyperzsh"
 #ZSH_THEME="odin"
 
-# TMUX
-ZSH_TMUX_AUTOSTART=true
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -77,6 +74,9 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export VISUAL=nvim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
