@@ -93,5 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="atom ~/.zshrc"
 # alias ohmyzsh="atom ~/.oh-my-zsh"
 
+alias vi="nvim"
+
 # Auto Start Tmux
 if [ "$TMUX" = "" ]; then tmux; fi
