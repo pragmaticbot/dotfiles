@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-
+#
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/Ruie/.oh-my-zsh
 
@@ -14,9 +14,6 @@ ZSH_THEME="dracula"
 # ZSH_THEME="af-magic"
 #ZSH_THEME="hyperzsh"
 #ZSH_THEME="odin"
-
-# TMUX
-ZSH_TMUX_AUTOSTART=true
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -77,6 +74,9 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+export EDITOR=nvim
+export GIT_EDITOR=nvim
+export VISUAL=nvim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -92,6 +92,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="atom ~/.zshrc"
 # alias ohmyzsh="atom ~/.oh-my-zsh"
+
+alias vi="nvim"
 
 # Auto Start Tmux
 if [ "$TMUX" = "" ]; then tmux; fi
