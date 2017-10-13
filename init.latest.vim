@@ -181,7 +181,7 @@ nnoremap <S-Tab> :bprev!<CR>
 " Themes ---------
 set background=dark
 colorscheme one
-"colorscheme wwdc16
+call one#highlight('StatusLineNC', '', '2c323c', 'none')
 
 if has('macunix')
   " pbcopy for OSX copy/paste
