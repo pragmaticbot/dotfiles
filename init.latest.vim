@@ -31,6 +31,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'qpkorr/vim-bufkill'
 " Programming
 Plug 'elzr/vim-json'
 Plug 'othree/yajs.vim'
@@ -48,6 +49,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'valloric/MatchTagAlways'
 Plug 'alvan/vim-closetag'
 Plug 'jiangmiao/auto-pairs'
+Plug 'moll/vim-node'
 " Themes
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'lifepillar/vim-solarized8'
@@ -63,7 +65,7 @@ let g:indentLine_enabled = 1
 let g:indentLine_char = "┆"
 let g:user_emmet_install_global = 0
 let g:user_emmet_mode='n'
-let g:user_emmet_leader_key='<leader>e'
+let g:user_emmet_leader_key='<Leader>e'
 let g:used_javascript_libs = 'underscore,backbone,jquery,react,jasmine, chai'
 let g:deoplete#enable_at_startup = 1
 let g:javascript_plugin_jsdoc = 1
@@ -75,6 +77,7 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_unite = 1
 let g:webdevicons_enable_ctrlp = 1
 let g:webdevicons_enable_flagship_statusline = 1
+let g:mustache_abbreviations = 1
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 let g:semanticGUIColors = ['#e5c07b', '#e16c74', '#87af87', '#c678dd', '#55b6c2']
 let g:mta_filetypes = {
@@ -89,10 +92,11 @@ let g:mta_filetypes = {
 
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.html.erb,*.md'
 let g:airline#extensions#tabline#enabled = 1
+let g:indent_guides_exclude_filetypes = ['nerdtree']
 " AutoCMD
+autocmd FileType html,css EmmetInstall
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * NERDTree
-autocmd BufEnter * NERDTreeMirror
 autocmd VimEnter * wincmd w
 autocmd BufReadPre *.js let b:javascript_lib_use_jquery = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_underscore = 1
@@ -100,19 +104,17 @@ autocmd BufReadPre *.js let b:javascript_lib_use_backbone = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_react = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_jasmine = 1
 autocmd BufReadPre *.js let b:javascript_lib_use_chai = 1
-autocmd FileType html,css EmmetInstall
 autocmd FileType scss set iskeyword+=-
-au BufRead,BufNewFile *.scss set filetype=scss.css
+au BufRead,BufNewFile *.scss set ft=scss.css
+au BufNewFile,BufRead *.handlebars set ft=html
 augroup VimCSS3Syntax
   autocmd!
-
   autocmd FileType css setlocal iskeyword+=-
 augroup END
 " Remappings
 inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 nnoremap <Leader>o :CtrlP<CR>
 map ` :NERDTreeToggle<CR>
-"nnoremap <Leader>s :SemanticHighlightToggle<cr>
 " Plugin Inits End -----
 
 
@@ -170,6 +172,7 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>r :source $MYVIMRC<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
+nmap <leader>x :BD<cr>
 
 imap <up> <nop>
 imap <down> <nop>
@@ -180,6 +183,7 @@ nnoremap <S-Tab> :bprev!<CR>
 
 " Themes ---------
 set background=dark
+let g:one_allow_italics = 1
 colorscheme one
 call one#highlight('StatusLineNC', '', '2c323c', 'none')
 
@@ -198,3 +202,23 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Make the cursor stay on the same line when window switching
+function! KeepCurrentLine(motion)
+  let theLine = line('.')
+  let theCol = col('.')
+  exec 'wincmd ' . a:motion
+  if &diff
+    call cursor(theLine, theCol)
+  endif
+endfunction
+nnoremap <C-w>h :silent call KeepCurrentLine('h')<CR>
+nnoremap <C-w>l :silent call KeepCurrentLine('l')<CR>
+
+"GitGutter styling to use · instead of +/-
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
+
+command! BufCloseOthers %bd|e#
