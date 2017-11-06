@@ -12,7 +12,6 @@ export ZSH=/Users/Ruie/.oh-my-zsh
 ZSH_THEME="dracula"
 # ZSH_THEME="af-magic"
 #ZSH_THEME="hyperzsh"
-#ZSH_THEME="odin"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
