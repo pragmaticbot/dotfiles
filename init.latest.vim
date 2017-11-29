@@ -32,6 +32,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'qpkorr/vim-bufkill'
+Plug 'majutsushi/tagbar'
+Plug 'junegunn/goyo.vim'
 " Programming
 Plug 'elzr/vim-json'
 Plug 'othree/yajs.vim'
@@ -62,7 +64,9 @@ call plug#end()
 
 " Plugin Inits ---------
 let g:indentLine_enabled = 1
-let g:indentLine_char = "┆"
+let g:indentLine_char = "│"
+let g:indentLine_setColors = 1
+let g:indentLine_color_gui = '#3b4048'
 let g:user_emmet_install_global = 0
 let g:user_emmet_mode='n'
 let g:user_emmet_leader_key='<Leader>e'
@@ -89,12 +93,15 @@ let g:mta_filetypes = {
     \ 'xhtml' : 1,
     \ 'xml' : 1,
     \}
-
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.js,*.html.erb,*.md'
 let g:airline#extensions#tabline#enabled = 1
 let g:indent_guides_exclude_filetypes = ['nerdtree']
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let NERDTreeIgnore=['node_modules$[[dir]]', '.swp']
 " AutoCMD
-autocmd FileType html,css EmmetInstall
+autocmd FileType html,css,js,jsx EmmetInstall
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd w
@@ -168,11 +175,12 @@ vmap < <gv
 vmap > >gv
 nnoremap <leader>, :noh<CR>
 
-nmap <leader>v :tabedit $MYVIMRC<CR>
+nmap <leader>ev :edit $MYVIMRC<CR>
+nmap <leader>et :edit ~/.tmux.conf<CR>
 nmap <leader>r :source $MYVIMRC<cr>
 nmap <leader>w :w!<cr>
 nmap <leader>q :q!<cr>
-nmap <leader>x :BD<cr>
+nmap <leader>g :Goyo<cr>
 
 imap <up> <nop>
 imap <down> <nop>
@@ -181,11 +189,31 @@ imap <right> <nop>
 nnoremap <Tab> :bnext!<CR>
 nnoremap <S-Tab> :bprev!<CR>
 
+" Window Pane Shortcuts  -----
+nmap <leader>q :q!<cr>
+nmap <leader>x :BD<cr>
+nnoremap <leader>pe <C-w>=
+nnoremap <leader>pr <C-w>r
+
 " Themes ---------
 set background=dark
 let g:one_allow_italics = 1
 colorscheme one
 call one#highlight('StatusLineNC', '', '2c323c', 'none')
+call one#highlight('VertSplit', '323842', '', 'none')
+call one#highlight('javascriptComment', '4b5263', '', 'none')
+call one#highlight('javascriptLineComment', '4b5263', '', 'none')
+call one#highlight('vimLineComment', '4b5263', '', 'none')
+call one#highlight('vimComment', '4b5263', '', 'none')
+call one#highlight('htmlComment', '4b5263', '', 'none')
+call one#highlight('javascriptBlock', 'e06c75', '', 'none')
+call one#highlight('javascriptXHRMethod', 'e06c75', '', 'none')
+call one#highlight('javascriptFuncCallArg', 'e5c07b', '', 'none')
+call one#highlight('javascriptCaseBlock', 'e5c07b', '', 'none')
+call one#highlight('javascriptMethod', 'e5c07b', '', 'none')
+call one#highlight('javascriptAsyncFuncKeyword', 'c678dd', '', 'none')
+call one#highlight('javascriptAwaitFuncKeyword', 'c678dd', '', 'none')
+call one#highlight('javascriptObjectLabel', '98c379', '', 'none')
 
 if has('macunix')
   " pbcopy for OSX copy/paste
