@@ -1,61 +1,46 @@
-// Place your settings in this file to overwrite the default settings here-
 {
-    "editor.fontSize": 14,
-    "window.zoomLevel": -0.1,
+    "vscode_custom_css.imports": [
+        "file:///Users/Ruie/.vscodestyles.css"
+    ],
+    "vscode_custom_css.policy": true,
+    "editor.fontSize": 12,
+    "keyboard.dispatch": "keyCode",
+    "window.zoomLevel": 0,
+    "explorer.openEditors.visible": 1,
     "editor.tabSize": 3,
+    "editor.fontFamily": "Roboto Mono Nerd Font Complete,Menlo, Monaco, 'Courier New', monospace",
     "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
-    
+    "vim.leader": ",",
+    "scm.diffDecorations": ["all", "gutter", "overview", "none"],
     "vim.insertModeKeyBindings": [
         {
-            "before": [
-                "k",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
+            "before": ["k","j"],
+            "after": ["<Esc>"]
         }
     ],
-    "vim.otherModesKeyBindingsNonRecursive": [
+    "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": [
-                "K"
-            ],
-            "after": [
-                "5",
-                "k"
-            ]
+            "before": ["K"],
+            "after": ["5","k"]
         },
         {
-            "before": [
-                "J"
-            ],
-            "after": [
-                "5",
-                "j"
-            ]
+            "before": ["J"],
+            "after": ["5","j"]
         },
         {
-            "before": [
-                "H"
-            ],
-            "after": [
-                "^"
-            ]
+            "before": ["H"],
+            "after": ["^"]
         },
         {
-            "before": [
-                "L"
-            ],
-            "after": [
-                "g",
-                "_"
-            ]
+            "before": ["L"],
+            "after": ["g","_"]
         },
         {
-            "before": [
-                ";"
-            ],
+            "before": ["<leader>","<cr>"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": [";"],
             "after": [],
             "commands": [
                 {
@@ -65,41 +50,103 @@
             ]
         }
     ],
-    
-    "editor.renderLineHighlight": "none",
-    "workbench.iconTheme": "file-icons",
+    "vim.visualModeKeyBindingsNonRecursive": [
+        {
+            "before": ["K"],
+            "after": ["5","k"]
+        },
+        {
+            "before": ["J"],
+            "after": ["5","j"]
+        },
+        {
+            "before": ["H"],
+            "after": ["^"]
+        },
+        {
+            "before": ["L"],
+            "after": ["g","_"]
+        },
+        {
+            "before": ["<leader>","<cr>"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": [
+                ">"
+            ],
+            "commands": [
+                {
+                    "args": [],
+                    "command": "editor.action.indentLines"
+                }
+            ]
+        },
+        {
+            "before": [
+                "<"
+            ],
+            "commands": [
+                {
+                    "args": [],
+                    "command": "editor.action.outdentLines"
+                }
+            ]
+        },
+    ],
+    "scrolloff.scrolloff" : 15,
+    "scrolloff.alwaysCenter": false,
+    "editor.snippetSuggestions": "top",
+    "editor.renderLineHighlight": "all",
     "workbench.activityBar.visible": false,
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
     "editor.hideCursorInOverviewRuler": true,
     "editor.minimap.enabled": false,
     "editor.renderIndentGuides": false,
-    "editor.matchBrackets": false,
     "workbench.colorCustomizations": {
-        "statusBar.background" : "#1A1A1A",
-        "statusBar.noFolderBackground" : "#212121",
-        "statusBar.debuggingBackground": "#263238",
-        // Scrollbar color
-        "scrollbarSlider.background": "#161719",
-        "scrollbarSlider.activeBackground": "#161719",
-        "scrollbarSlider.hoverBackground": "#161719",
-        "sideBar.background": "#161719",
-        // List and Trees rgb(29, 31, 33)
-        "list.hoverBackground": "#1D1F21",
-        "list.activeSelectionBackground": "#1D1F21",
-        "list.inactiveSelectionBackground": "#1D1F21",
-        // Terminal Colors
-        "terminal.ansiBrightMagenta": "#DD82CD",
-        "terminal.ansiBrightCyan": "#2892D7"
+        "scrollbarSlider.background": "#212121",
+        "scrollbarSlider.activeBackground": "#212121",
+        "scrollbarSlider.hoverBackground": "#212121",
+        "statusBar.background": "#B48EAD",
+        "statusBar.noFolderBackground": "#B48EAD",
+        "statusBar.debuggingBackground": "#B48EAD"
     },
     "editor.selectionHighlight": true,
-    "files.associations": {
-        "*.js": "javascriptreact"
-    },
-    "workbench.colorTheme": "Base16 Dark Tomorrow",
     "git.confirmSync": false,
-    "editor.renderWhitespace": "none",
     "editor.renderControlCharacters": true,
-    "workbench.startupEditor": "welcomePage"
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.formatOnPaste": true,
+    "bracketPairColorizer.scopeLineRelativePosition": true,
+    "files.exclude": {
+        "/.git": true,
+        "/.svn": true,
+        "/.hg": true,
+        "/CVS": true,
+        "/.DS_Store": true,
+        "/.history": true,
+        "/.github": true,
+        "**/.vscode": true,
+        "**/.expo": true,
+        "**/node_modules": true
+    },
+    "materialTheme.fixIconsRunning": false,
+    // Remove Scrollborder
+    "editor.overviewRulerBorder": false,
+    "workbench.editor.tabSizing": "shrink",
+    "workbench.fontAliasing": "default",
+    "window.closeWhenEmpty": true,
+    "terminal.integrated.cursorBlinking": true,
+    "bracketPairColorizer.highlightActiveScope": false,
+    "bracketPairColorizer.showBracketsInGutter": true,
+    "bracketPairColorizer.showBracketsInRuler": false,
+    "material-icon-theme.hidesExplorerArrows": true,
+    "bracketPairColorizer.showHorizontalScopeLine": false,
+    "vim.enableNeovim": true,
+    "workbench.colorTheme": "Ruie Dark",
+    "git.enableSmartCommit": true,
+    "search.location": "panel",
+    "workbench.iconTheme": "Monokai Pro Icons"
 }
 
